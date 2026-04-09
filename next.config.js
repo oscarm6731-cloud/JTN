@@ -2,14 +2,9 @@
 const nextConfig = {
   images: {
     remotePatterns: [
-      { protocol: 'https', hostname: '**' },
+      { protocol: 'https', hostname: '*' },
+      { protocol: 'http', hostname: '*' },
     ],
-  },
-  // Allow server actions to call internal API routes
-  experimental: {
-    serverActions: {
-      allowedOrigins: ['localhost:3000'],
-    },
   },
 }
 

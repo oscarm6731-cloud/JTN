@@ -1,8 +1,4 @@
-'use client'
-
 import Link from 'next/link'
-import { usePathname, useSearchParams } from 'next/navigation'
-import type { Category } from '@/types'
 
 const CATEGORIES: { label: string; slug: string }[] = [
   { label: 'All', slug: 'all' },
