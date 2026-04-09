@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { useState } from 'react'
+import { Suspense, useState } from 'react'
 import SearchBar from './SearchBar'
 
 const CATEGORIES = [
@@ -31,7 +31,9 @@ export default function Header() {
 
           {/* Search — desktop */}
           <div className="hidden md:block flex-1 max-w-md mx-8">
-            <SearchBar />
+            <Suspense fallback={<div className="h-9 rounded-full bg-white/10 animate-pulse" />}>
+              <SearchBar />
+            </Suspense>
           </div>
 
           {/* Daily Digest link + hamburger */}
@@ -75,7 +77,9 @@ export default function Header() {
       {/* Mobile menu */}
       {menuOpen && (
         <div className="md:hidden bg-brand-900 border-t border-white/10 px-4 pb-4 space-y-3">
-          <SearchBar />
+          <Suspense fallback={null}>
+            <SearchBar />
+          </Suspense>
           <div className="flex flex-wrap gap-2 pt-2">
             {CATEGORIES.map((cat) => (
               <Link
